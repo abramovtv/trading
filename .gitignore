@@ -1,0 +1,3 @@
+*.pyc
+application/local_settings.py
+
