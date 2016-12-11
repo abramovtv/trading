@@ -20,7 +20,7 @@ from django.conf import settings
 urlpatterns = [
     url(r'^admin_tools/', include('admin_tools.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^trading/', include('trading.urls')),
+    url(r'^trading/', include('trading.urls', namespace='trading')),
 ]
 
 if settings.DEBUG:

@@ -25,9 +25,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '(#)w4dvqz-md0)y(zxyb%c&x1w$i05ax-0&+(4mj)r31%pmn=o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -64,8 +64,9 @@ ROOT_URLCONF = 'application.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        # 'APP_DIRS': True,
+        'DIRS': [
+            'templates'
+        ],
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -85,6 +86,10 @@ TEMPLATES = [
 WSGI_APPLICATION = 'application.wsgi.application'
 
 
+# Admin Tools
+ADMIN_TOOLS_INDEX_DASHBOARD = "application.dashboard.CustomIndexDashboard"
+
+
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
@@ -92,7 +97,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'trader_test',  # Переопределяется из какого-то фалйа не в репозитории
-        'USER': 'application',  #  В моем случае в local_settings
+        'USER': 'application',  # В моем случае в local_settings
         'PASSWORD': 'test_password',
     }
 }
@@ -177,7 +182,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-
+STATICFILES_DIRS = ('static',)
 
 try:
     from local_settings import *

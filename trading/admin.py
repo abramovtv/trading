@@ -1,10 +1,6 @@
 # -*- coding: utf-8 -*-
-from django.conf.urls import url
 from django.contrib import admin
-
-from .views import AdminStatView
 from .models import *
-
 
 @admin.register(Trader)
 class TraderAdmin(admin.ModelAdmin):
@@ -46,12 +42,3 @@ class TransactionAdmin(TraderNameMixin, admin.ModelAdmin):
        """
     def get_queryset(self, request):
         return super(TraderNameMixin, self).get_queryset(request).prefetch_related('trader')
-
-# @admin.register(DealStat)
-# class MyModelAdmin(admin.ModelAdmin):
-#     def get_urls(self):
-#         urls = super(MyModelAdmin, self).get_urls()
-#         my_urls = [
-#             url(r'^stats/$', self.admin_site.admin_view(AdminStatView.as_view())),
-#         ]
-#         return my_urls + urls
