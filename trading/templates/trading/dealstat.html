@@ -4,7 +4,11 @@
 {% block body_content %}
 <div class="panel panel-default">
     <div class="panel-body">
-        <h2>Trading statistics, {{ date|date:"d  M Y" }}<br /><small>Trading volume {{ day_volume|money:"places=0" }} Trading result {{ day_result|money:"places=0|pos=+" }}</small></h2>
+        <h2>Trading statistics, {{ date|date:"d  M Y" }}<br />
+            <small>
+                Trading volume {{ day_volume|default:"0"|money:"places=0" }}
+                Trading result {{ day_result|default:"0"|money:"places=0|pos=+" }}</small>
+        </h2>
         <table class="table table-hover">
             <thead>
                 <tr class="text-uppercase">
