@@ -1,4 +1,5 @@
 *.pyc
 .idea
 application/local_settings.py
+application/local_urls.py
 
